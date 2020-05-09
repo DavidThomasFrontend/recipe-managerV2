@@ -1,44 +1,45 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
+
 
 <h3>Add Recipe</h3>
  <div class="row">
-    <form class="col s12">
+    <form action="{{ url_for('get_recipes') }}" method="POST" class="col s12">
       <div class="row">
       <i class="medium material-icons left">restaurant_menu</i>
-        <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">Recipe Name</label>
+        <div class="input-field col s12">
+          <input id="recipe_name" name="recipe_name" type="text" class="validate">
+          <label for="recipe_name">Recipe Name</label>
         </div>
       <div class="row">
         <div class="input-field col s12">
     <!-- <i class="medium material-icons left">receipt</i> --> 
-          <input id="disabled" type="text" class="validate">
-          <label for="disabled">Ingredients</label>
+          <input id="ingredients" name="ingredients" type="text" class="validate">
+          <label for="ingredients">Ingredients</label>
         </div>
       </div>
         <div class="row">
         <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Utensils</label>
+          <textarea id="utensil_name" name="utensil_name" class="materialize-textarea"></textarea>
+          <label for="utensil_name">Utensils</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="textarea2" class="materialize-textarea"></textarea>
-          <label for="textarea1">Method</label>
+          <textarea id="meal_procedure" name="meal_procedure" class="materialize-textarea"></textarea>
+          <label for="meal_procedure">Method</label>
         </div>
       </div>
-      
-    <div class="input-field col s12">
-        <select>
-            <option value="" disabled selected>Choose your option</option>
+
+
+    <div class="row">
+        <select class="browser-default col s3 left">
+            <option value="" disabled selected>Diet</option>
             <option value="1">Vegan</option>
             <option value="2">Vegetarian</option>
             <option value="3">Meat</option>
         </select>
-        <label>Diet</label>
-  </div>
+    </div>  
+   
       <button class="btn waves-effect waves-light" type="submit" name="action">Publish
     <i class="material-icons right">publish</i>
   </button>
