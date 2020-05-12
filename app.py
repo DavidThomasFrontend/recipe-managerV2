@@ -27,6 +27,13 @@ def insert_recipe():
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('get_recipes'))
 
+@app.route('/edit_recipe/<recipes_id>')
+def edit_recipe(recipes_id):
+    the_recipes = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
+    all_diet_categories = mongo.db.categories.find()
+    return render_template('edit_recipe.html', recipes = the_recipes, categories = all_diet_categories)
+
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

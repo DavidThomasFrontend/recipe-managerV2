@@ -1,10 +1,100 @@
-{% extends 'base.html' %}
-{% block content %}
-    {% for recipes in recipes %}
-        {{recipes.recipe_name}}
-        {{recipes.ingredients}}
-        {{recipes.utensil_name}}
-        {{recipes.is_vegan}}
-        {{recipes.meal_procedure}}
-    {% endfor %}
+{% extends 'base.html' %} {% block content %}
+
+<div class="row">
+    <ul class="collapsible red lighten-2" data-collapsible="accordion">
+        {% for recipes in recipes %}
+        <li>
+            <div class="collapsible-header red lighten-2">
+                <div class="col s3">
+                    <i class="material-icons">expand_more</i>
+                    <a href= '' class="waves-effect waves-light btn btn_small green">Done</a>
+                    <a href= "{{ url_for('edit_recipe', recipes_id=recipes._id) }}" class="waves-effect waves-light btn btn_small blue">Edit</a>
+                    
+                </div>
+                <div class="col s9">
+                    <h4>{{recipes.recipe_name}}</h4>
+                </div>
+            </div>
+            <div class="collapsible-body purple lighten-4">
+                <span>
+                {{recipes.recipe_description}}
+                <br>{{recipes.ingredients}}
+                <br>{{recipes.utensil_name}}
+                <br>{{recipes.diet_category}}
+                <br>{{recipes.meal_procedure}}
+            </span>
+            </div>
+        </li>
+<div class='container'>        
+<span class="heading">User Rating</span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<p>4.1 average based on 254 reviews.</p>
+<hr style="border:3px solid #f1f1f1">
+<div class="row">
+   <div class="side">
+      <div>5 star</div>
+   </div>
+   <div class="middle">
+      <div class="bar-container">
+         <div class="bar-5"></div>
+      </div>
+   </div>
+   <div class="side right">
+      <div>150</div>
+   </div>
+   <div class="side">
+      <div>4 star</div>
+   </div>
+   <div class="middle">
+      <div class="bar-container">
+         <div class="bar-4"></div>
+      </div>
+   </div>
+   <div class="side right">
+      <div>63</div>
+   </div>
+   <div class="side">
+      <div>3 star</div>
+   </div>
+   <div class="middle">
+      <div class="bar-container">
+         <div class="bar-3"></div>
+      </div>
+   </div>
+   <div class="side right">
+      <div>15</div>
+   </div>
+   <div class="side">
+      <div>2 star</div>
+   </div>
+   <div class="middle">
+      <div class="bar-container">
+         <div class="bar-2"></div>
+      </div>
+   </div>
+   <div class="side right">
+      <div>6</div>
+   </div>
+   <div class="side">
+      <div>1 star</div>
+   </div>
+   <div class="middle">
+      <div class="bar-container">
+         <div class="bar-1"></div>
+      </div>
+   </div>
+   <div class="side right">
+      <div>20</div>
+   </div>
+</div>
+</div>
+{% endfor %}
+</ul>
+</div>
+
+
 {% endblock %}
