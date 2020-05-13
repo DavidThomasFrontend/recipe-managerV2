@@ -8,6 +8,14 @@
             <input id="recipe_name" name="recipe_name" type="text" class="validate">
             <label for="recipe_name">Recipe Name</label>
          </div>
+         {% for recipe in recipes %}
+         {% if cat.recipe_name == recipes.recipe_name %}
+                      <option value="{{recipes.recipes}}" selected >{{recipes.recipes}}</option>
+                      {% else %}
+                       <option value="{{recipes.recipes}}" >{{recipes.recipes}}</option>
+                    {% endif %}
+                    
+               {% endfor %}
          <div class="row">
             <div class="input-field col s12">
                <!-- <i class="medium material-icons left">receipt</i> --> 
@@ -32,7 +40,10 @@
                <select>
                   <option value="" disabled selected>Choose your option</option>
                   {% for cat in categories %}
-                  <option value="{{cat.diet_category}}">{{cat.diet_category}}</option>
+                  {% if cat.diet_category == categories.diet_category %}
+                  <option value="{{cat.diet_category}}" selected >{{cat.diet_category}}</option>
+                  {% else %}
+                   <option value="{{cat.diet_category}}" >{{cat.diet_category}}</option>
                   {% endfor %}
                </select>
                <label>Diet</label>
