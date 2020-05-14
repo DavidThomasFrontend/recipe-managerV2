@@ -29,10 +29,27 @@ def insert_recipe():
 
 @app.route('/edit_recipe/<recipes_id>')
 def edit_recipe(recipes_id):
-    the_recipes = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
+    recipes = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
     all_diet_categories = mongo.db.categories.find()
-    return render_template('edit_recipe.html', recipes = the_recipes, categories = all_diet_categories)
+    return render_template('edit_recipe.html', recipes = recipes, categories = all_diet_categories)
 
+@app.route('/update_recipe/<recipes_id>', methods=['POST'])    
+def update_recipe(recipes_id):
+    recipes=mongo.db.recipes
+    recipes.update( {'_id': ObjectId(recipes_id)},
+    {
+        'recipe_name':request.form.get('recipe_name'),
+        'ingredients':request.form.get('ingredients'),
+        'utensil_name': request.form.get('utensil_name'),
+        'meal_procedure': request.form.get('meal_procedure'),
+        'diet_category':request.form.get('diet_category')
+    })
+    return redirect(url_for('get_recipes'))
+
+@app.route('/delete_recipe/<recipes_id>')
+def delete_recipe(recipes_id):
+    mongo.db.recipes.remove({'_id': ObjectId(recipes_id)})
+    return redirect(url_for('get_recipes'))
 
 
 if __name__ == '__main__':

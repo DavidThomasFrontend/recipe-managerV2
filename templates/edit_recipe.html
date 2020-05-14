@@ -1,37 +1,31 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Edit Recipe</h3>
 <div class="row">
-   <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
-      <div class="row">
-         <i class="medium material-icons left">restaurant_menu</i>
+   <form action="{{ url_for('update_recipe', recipes_id=recipes._id) }}" method="POST" class="col s12">
+      <div class="row" >
+         <i class="medium material-icons left">restaurant_menu</i> 
          <div class="input-field col s12">
-            <input id="recipe_name" name="recipe_name" type="text" class="validate">
+            <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{ recipes.recipe_name }}">
             <label for="recipe_name">Recipe Name</label>
          </div>
-         {% for recipe in recipes %}
-         {% if cat.recipe_name == recipes.recipe_name %}
-                      <option value="{{recipes.recipes}}" selected >{{recipes.recipes}}</option>
-                      {% else %}
-                       <option value="{{recipes.recipes}}" >{{recipes.recipes}}</option>
-                    {% endif %}
                     
-               {% endfor %}
+              
          <div class="row">
             <div class="input-field col s12">
                <!-- <i class="medium material-icons left">receipt</i> --> 
-               <input id="ingredients" name="ingredients" type="text" class="validate">
+               <input id="ingredients" name="ingredients" type="text" class="validate" value="{{ recipes.ingredients }}">
                <label for="ingredients">Ingredients</label>
             </div>
          </div>
          <div class="row">
             <div class="input-field col s12">
-               <textarea id="utensil_name" name="utensil_name" class="materialize-textarea"></textarea>
+               <textarea id="utensil_name" name="utensil_name" class="materialize-textarea">{{ recipes.utensil_name }}</textarea>
                <label for="utensil_name">Utensils</label>
             </div>
          </div>
          <div class="row">
             <div class="input-field col s12">
-               <textarea id="meal_procedure" name="meal_procedure" class="materialize-textarea"></textarea>
+               <textarea id="meal_procedure" name="meal_procedure" class="materialize-textarea">{{ recipes.meal_procedure }}</textarea>
                <label for="meal_procedure">Method</label>
             </div>
          </div>
@@ -39,11 +33,12 @@
             <div class="input-field col s3">
                <select>
                   <option value="" disabled selected>Choose your option</option>
-                  {% for cat in categories %}
-                  {% if cat.diet_category == categories.diet_category %}
-                  <option value="{{cat.diet_category}}" selected >{{cat.diet_category}}</option>
-                  {% else %}
-                   <option value="{{cat.diet_category}}" >{{cat.diet_category}}</option>
+                  {% for categories in categories %}
+                    {% if categories.diet_category == categories.diet_category %}
+                    <option value="{{categories.diet_category}}" selected >{{categories.diet_category}}</option>
+                    {% else %}
+                   <option value="{{categories.diet_category}}" >{{categories.diet_category}}</option>
+                    {% endif %} 
                   {% endfor %}
                </select>
                <label>Diet</label>
@@ -51,8 +46,8 @@
          </div>
          <div class="row">
             <div class='col s12'>
-               <button class="btn waves-effect waves-light" type="submit" name="action">Publish
-               <i class="material-icons right">publish</i>
+               <button class="btn waves-effect waves-light" type="submit" name="action">Submit Edit
+               <i class="material-icons right">edit</i>
                </button>
             </div>
          </div>
