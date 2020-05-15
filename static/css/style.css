@@ -1,13 +1,25 @@
+body {
+    background-image: url(/static/images/10492h-cooking-ingredients-picture-in-hd.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #000000;
+}
+
+ .navbar.transparent.navbar-inverse .navbar-inner {
+   background: rgba(0,0,0,0.4);
+}
+
+
+
+
+
 * {
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial;
-  margin: 0 auto; /* Center website */
-  max-width: 800px; /* Max width */
-  padding: 20px;
-}
+
 
 .heading {
   font-size: 25px;
