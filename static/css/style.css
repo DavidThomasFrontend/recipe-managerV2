@@ -12,8 +12,17 @@ body {
 }
 
 h3{
-    text-decoration-color: #FFFF;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
 }
+
+h1{
+     text-align: center;
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+}
+
 
 
 
