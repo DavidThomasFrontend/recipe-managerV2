@@ -1,107 +1,49 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="row">
-    <ul class="collapsible red lighten-2" data-collapsible="accordion">
+    <ul class="collapsible popout red lighten-2" data-collapsible="accordion">
         {% for recipes in recipes %}
-
-        {% for ingredients in ingredients %}
-            <p>{ ingredients }<p>
-        {% endfor %}
+    <!---    <img src="{{ recipes.image }}" /> -->
         <li>
             <div class="collapsible-header red lighten-2">
                 <div class="col s3">
-                    <i class="material-icons">expand_more</i>
+                    <i class="material-icons">details</i>
                     <a href= "{{ url_for('delete_recipe', recipes_id=recipes._id) }}" class="waves-effect waves-light btn btn_small red">Delete</a>
                     <a href= "{{ url_for('edit_recipe', recipes_id=recipes._id) }}" class="waves-effect waves-light btn btn_small blue">Edit</a>
                     
                 </div>
-                <div class="col s9">
+                <div class="col s9 name">
                     <h4>{{recipes.recipe_name}}</h4>
+                    <img src="{{ recipes.image }}" width="200" height="200"/>
                 </div>
             </div>
             <div class="collapsible-body purple lighten-4">
                 <span>
                 {{recipes.recipe_description}}
-                <br>{{recipes.ingredients}}
-                <br>{{recipes.utensil_name}}
+                <br><h2>Ingredients</h2>{% set ingredients = recipes.ingredients.split(', ') %}
+        {% for ingredients in ingredients %}
+            <p>{{ ingredients }}<p>
+        {% endfor %}
+                <br><h2>Utensils</h2>{{recipes.utensil_name}}
                 <br>{{recipes.diet_category}}
-                <br>{{recipes.meal_procedure}}
+                <br><h2>Method</h2>{% set meal_procedure = recipes.meal_procedure.split('. ') %}
+        {% for meal_procedure in meal_procedure %}
+            <p>{{ meal_procedure }}<p>
+        {% endfor %}
+           
             </span>
             </div>
         </li>
 
-        
-<div class='container'>
-   <span class="heading">User Rating</span>
-   <span class="fa fa-star checked"></span>
-   <span class="fa fa-star checked"></span>
-   <span class="fa fa-star checked"></span>
-   <span class="fa fa-star checked"></span>
-   <span class="fa fa-star"></span>
-   <p>4.1 average based on 254 reviews.</p>
-   <hr style="border:3px solid #f1f1f1">
-   <div class="row">
-      <div class="side">
-         <div>5 star</div>
-      </div>
-      <div class="middle">
-         <div class="bar-container">
-            <div class="bar-5"></div>
-         </div>
-      </div>
-      <div class="side right">
-         <div>150</div>
-      </div>
-      <div class="side">
-         <div>4 star</div>
-      </div>
-      <div class="middle">
-         <div class="bar-container">
-            <div class="bar-4"></div>
-         </div>
-      </div>
-      <div class="side right">
-         <div>63</div>
-      </div>
-      <div class="side">
-         <div>3 star</div>
-      </div>
-      <div class="middle">
-         <div class="bar-container">
-            <div class="bar-3"></div>
-         </div>
-      </div>
-      <div class="side right">
-         <div>15</div>
-      </div>
-      <div class="side">
-         <div>2 star</div>
-      </div>
-      <div class="middle">
-         <div class="bar-container">
-            <div class="bar-2"></div>
-         </div>
-      </div>
-      <div class="side right">
-         <div>6</div>
-      </div>
-      <div class="side">
-         <div>1 star</div>
-      </div>
-      <div class="middle">
-         <div class="bar-container">
-            <div class="bar-1"></div>
-         </div>
-      </div>
-      <div class="side right">
-         <div>20</div>
-      </div>
-   </div>
-</div>
+<!--<div class="desc">
+   <p class="flow-text">
+   Lorum50
+   </p>
+</div> -->
+
 
 {% endfor %}
-</ul>
-</div>
+
 
 
 {% endblock %}

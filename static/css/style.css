@@ -15,14 +15,22 @@ h3{
     text-align: center;
     color: #ffffff;
     font-family: 'Playfair Display', serif;
+
 }
 
 h1{
      text-align: center;
     color: #ffffff;
     font-family: 'Playfair Display', serif;
+    padding-top: 200px;
 }
 
+.btn_small{
+    display: block;
+}
 
+.name{
+    font-family: 'Lato', serif;
+}
 
 

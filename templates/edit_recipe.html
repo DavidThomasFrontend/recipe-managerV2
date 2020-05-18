@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Edit Recipe</h3>
 <div class="row">
-   <form action="{{ url_for('update_recipe', recipes_id=recipes._id) }}" method="POST" class="col s12">
+   <form action="{{ url_for('update_recipe', recipes_id=recipes._id) }}" method="POST" class="col s12 white">
       <div class="row" >
          <i class="medium material-icons left">restaurant_menu</i> 
          <div class="input-field col s12">
@@ -29,6 +29,7 @@
                <label for="meal_procedure">Method</label>
             </div>
          </div>
+         
          <div class="row">
             <div class="input-field col s3">
                <select>
