@@ -36,11 +36,11 @@ As a visitor i want a clean and simple interface that clearly tells me where the
 
   
 
-Here is a folder with some mockups including previous ideas that didnt work out:
+Here is a folder with some mockups:
 
   
 
-[https://github.com/Vileblood/Retro_arcade/tree/master/Mockups](https://github.com/Vileblood/Retro_arcade/tree/master/Mockups)
+[https://github.com/Vileblood/recipe-managerV2/tree/master/Web%20Mockups](https://github.com/Vileblood/recipe-managerV2/tree/master/Web%20Mockups)
 
   
 
