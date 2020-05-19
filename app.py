@@ -8,8 +8,8 @@ if path.exists("env.py"):
     import env
 
 
-
 app = Flask(__name__)
+
 
 """MongoDB - setting env variables"""
 app.config['MONGO_DBNAME'] = os.environ["MONGO_DBNAME"]
@@ -17,23 +17,24 @@ app.config['MONGO_URI'] = os.environ["MONGO_URI"]
 
 mongo = PyMongo(app)
 
+
 @app.route('/')
 @app.route('/get_recipes')
 def get_recipes():
-   return render_template('recipes.html', recipes=mongo.db.recipes.find())
+        return render_template('recipes.html', recipes=mongo.db.recipes.find())
 
 
 @app.route('/add_recipe')
 def add_recipe():
-    recipes=mongo.db.recipes.find()
+    recipes = mongo.db.recipes.find()
     categories = mongo.db.categories.find()
     return render_template(
-    'add_recipe.html', recipes=recipes, categories=categories)
+        'add_recipe.html', recipes=recipes, categories=categories)
 
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
-    recipes= mongo.db.recipes
+    recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('get_recipes'))
 
@@ -43,20 +44,20 @@ def edit_recipe(recipes_id):
     recipes = mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
     all_diet_categories = mongo.db.categories.find()
     return render_template('edit_recipe.html',
-     recipes = recipes, categories = all_diet_categories)
+           recipes=recipes, categories=all_diet_categories)
 
 
 @app.route('/update_recipe/<recipes_id>', methods=['POST'])    
 def update_recipe(recipes_id):
-    recipes=mongo.db.recipes
-    recipes.update( {'_id': ObjectId(recipes_id)},
-    {
-        'recipe_name':request.form.get('recipe_name'),
-        'ingredients':request.form.get('ingredients'),
-        'utensil_name': request.form.get('utensil_name'),
-        'meal_procedure': request.form.get('meal_procedure'),
-        'diet_category':request.form.get('diet_category')
-    })
+    recipes = mongo.db.recipes
+    recipes.update({'_id': ObjectId(recipes_id)},
+                  {
+                    'recipe_name': request.form.get('recipe_name'),
+                    'ingredients': request.form.get('ingredients'),
+                    'utensil_name': request.form.get('utensil_name'),
+                    'meal_procedure': request.form.get('meal_procedure'),
+                    'diet_category': request.form.get('diet_category')
+                    })
     return redirect(url_for('get_recipes'))
 
 
