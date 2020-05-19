@@ -3,10 +3,17 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
+from os import path
+if path.exists("env.py"):
+    import env
+
+
+
 app = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = "recipe_manager"
-app.config['MONGO_URI'] = 'mongodb+srv://dthomas86:r00tuser@myfirstcluster-pf6q6.mongodb.net/recipe_manager?retryWrites=true&w=majority'
+"""MongoDB - setting env variables"""
+app.config['MONGO_DBNAME'] = os.environ["MONGO_DBNAME"]
+app.config['MONGO_URI'] = os.environ["MONGO_URI"]
 
 mongo = PyMongo(app)
 

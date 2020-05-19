@@ -3,7 +3,7 @@
 <div class="row">
     <ul class="collapsible popout red lighten-2" data-collapsible="accordion">
         {% for recipes in recipes %}
-    <!---    <img src="{{ recipes.image }}" /> -->
+    
         <li>
             <div class="collapsible-header red lighten-2">
                 <div class="col s3">
@@ -14,7 +14,7 @@
                 </div>
                 <div class="col s9 name">
                     <h4>{{recipes.recipe_name}}</h4>
-                    <img src="{{ recipes.image }}" width="200" height="200"/>
+                    <img src="{{ recipes.image }}" width="200" height="200"/>    
                 </div>
             </div>
             <div class="collapsible-body purple lighten-4">
@@ -35,11 +35,7 @@
             </div>
         </li>
 
-<!--<div class="desc">
-   <p class="flow-text">
-   Lorum50
-   </p>
-</div> -->
+
 
 
 {% endfor %}
