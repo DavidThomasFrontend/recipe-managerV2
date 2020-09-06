@@ -1,42 +1,48 @@
-{% extends 'base.html' %} {% block content %}
-<div class="row">
-<ul class="collapsible popout red lighten-2" data-collapsible="accordion">
-{% for recipes in recipes %}
-<li>
-   <div class="collapsible-header red lighten-2">
-      <div class="col s3">
-         <i class="material-icons">details</i>
-         <a href= "{{ url_for('delete_recipe', recipes_id=recipes._id) }}" class="waves-effect waves-light btn btn_small red">Delete</a>
-         <a href= "{{ url_for('edit_recipe', recipes_id=recipes._id) }}" class="waves-effect waves-light btn btn_small blue">Edit</a>
-      </div>
-      <div class="col s9 name">
-         <h4>{{recipes.recipe_name}}</h4>
-         <img src="{{ recipes.image }}" width="200" height="200"/>    
-      </div>
-   </div>
-   <div class="collapsible-body purple lighten-4">
-      <span>
-         {{recipes.recipe_description}}
-         <br>
-         <h2>Ingredients</h2>
-         {% set ingredients = recipes.ingredients.split(', ') %}
-         {% for ingredients in ingredients %}
-         <p>{{ ingredients }}
-         <p>
-            {% endfor %}
-            <br>
-         <h2>Utensils</h2>
-         {{recipes.utensil_name}}
-         <br>{{recipes.diet_category}}
-         <br>
-         <h2>Method</h2>
-         {% set meal_procedure = recipes.meal_procedure.split('. ') %}
-         {% for meal_procedure in meal_procedure %}
-         <p>{{ meal_procedure }}
-         <p>
-            {% endfor %}
-      </span>
-   </div>
-</li>
-{% endfor %}
+{% extends 'base.html' %} 
+
+{% block content %}
+
+   <div class="row">
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for recipe in recipes %}
+        <li>
+            <div class="collapsible-header">
+                <div class="col s3">
+                    <i class="material-icons">expand_more</i>
+                     <a href= "{{ url_for('delete_recipe', recipes_id=recipe._id) }}" class="waves-effect waves-light btn btn_small red">Delete</a>
+                    <a href= "{{ url_for('edit_recipe', recipes_id=recipe._id) }}" class="waves-effect waves-light btn btn_small blue">Edit</a>
+                    
+                </div>
+                <div class=" task_header col s9">
+                    <strong>{{recipe.recipe_name}}</strong> 
+                </div>
+            </div>
+            <div class="collapsible-body white">
+             <div class="col s9 name">
+                <img src="{{ recipe.image }}" width="200" height="200"/>    
+            </div>
+
+                <span>
+                  {% for ingredient in recipe.ingredients %}
+                <p>{{ ingredients }}
+                <p>
+                    {% endfor %}
+                    <br>
+                <h4>Utensils</h4>
+                {{recipe.utensil_name}}
+                <br>{{recipe.diet_category}}
+                <br>
+                <h4>Method</h4>
+                
+                {% for meal_procedure in recipe.meal_procedure %}
+                <p>{{ meal_procedure }}
+                <p>
+                    {% endfor %}
+            </span>
+            </div>
+        </li>
+        {% endfor %}
+
+    </ul>
+</div>
 {% endblock %}
