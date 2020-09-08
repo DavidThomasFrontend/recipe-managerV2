@@ -4,7 +4,7 @@
 
    <div class="row">
     <ul class="collapsible" data-collapsible="accordion">
-        {% for recipe in recipes %}
+      {% for recipe in recipes %} 
         <li>
             <div class="collapsible-header">
                 <div class="col s3">
@@ -23,22 +23,16 @@
             </div>
 
                 <span>
-                  {% for ingredient in recipe.ingredients %}
-                <p>{{ ingredients }}
-                <p>
-                    {% endfor %}
+                    <h4> Ingredients </h4>
+                    <p>{{ recipe.ingredients }}</p>
                     <br>
-                <h4>Utensils</h4>
-                {{recipe.utensil_name}}
-                <br>{{recipe.diet_category}}
-                <br>
-                <h4>Method</h4>
-                
-                {% for meal_procedure in recipe.meal_procedure %}
-                <p>{{ meal_procedure }}
-                <p>
-                    {% endfor %}
-            </span>
+                    <h4>Utensils</h4>
+                    {{ recipe.utensil_name }}
+                    <br>
+                    <h4>Method</h4>
+                    <p>{{ recipe.meal_procedure }}</p>
+                    
+                </span>
             </div>
         </li>
         {% endfor %}

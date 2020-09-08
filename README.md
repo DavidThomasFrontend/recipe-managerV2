@@ -15,7 +15,7 @@ I also wanted a compact recipe experience to negate the need for a lot of scroll
 
 The UX was extremely important in this project. I wanted to make a positive user experience so the user would keep coming back to add new recipes and could view them easily aswell as edit or remove them.
 
-  i wanted navigation to be the same in every part of the website so as not to confuse and potentially irritate users. I want to achieve a smooth experience for visitors who wont be put off by confusing navigation and to a recipe in as few clicks as possible. I originally wanted the user to be able to edit the diet_category after setting it originally but decided against it as to change the diet for example from meat based to vegetarian would take changing the entire recipe when a user could just add a new recipe.
+  i wanted navigation to be the same in every part of the website so as not to confuse and potentially irritate users. I want to achieve a smooth experience for visitors who wont be put off by confusing navigation and to a recipe in as few clicks as possible. 
 
   Each recipe has its own dropdown popout showing utensils, ingredients and meal procedure method. 
 
@@ -76,7 +76,7 @@ The features of my site are as follows:
 
   
 
--  A feature i would like to implement would be full search capability based on ingredient, utensil, diet etc.
+-  A feature i would like to implement would be full search capability based on ingredient, utensil, method etc.
 
 -  While investigating for this project , i had the idea of a function that, when you would view ingredients there would be a simple button next to it that would lead you to a supermarket (tesco, lidl marks and spencer etc) that would put the needed ingredients into your basket. Unfortunately when i looked into making an example with tesco they unlisted their developer support. I feel this would be interesting to add to offer more ease of use.
 
@@ -122,7 +122,7 @@ i sent a link to friends and family and asked them to use the website and give f
 
   
 
-Most of these problems were remedied by researching the issue and adding the relevant  fixes such as entering the correct path to my css file or keeping track of my mongo labels for each recipe/diet category
+Most of these problems were remedied by researching the issue and adding the relevant  fixes such as entering the correct path to my css file or keeping track of my mongo labels for each recipe
 
   
 

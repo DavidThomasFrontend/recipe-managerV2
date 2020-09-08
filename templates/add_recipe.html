@@ -8,6 +8,12 @@
             <input id="recipe_name" name="recipe_name" type="text" class="validate">
             <label for="recipe_name">Recipe Name</label>
          </div>
+        <div class="row">
+            <div class="input-field col s12"> 
+                <input class="image" type="text" name="image">       
+                <label for="image">Image</label>
+            </div>
+        </div>
          <div class="row">
             <div class="input-field col s12">
                <!-- <i class="medium material-icons left">receipt</i> --> 
@@ -27,21 +33,6 @@
                <label for="meal_procedure">Method</label>
             </div>
          </div>
-         <div class="row">
-            <div class="input-field col s3">
-               <select>
-                  <option value="" disabled selected>Choose your option</option>
-                  {% for cat in categories %}
-                  <option value="{{cat.diet_category}}">{{cat.diet_category}}</option>
-                  {% endfor %}
-               </select>
-               <label>Diet</label>
-            </div>
-         </div>
-         <form class="upload" action="/action_page.php">
-            <input type="file" id="myFile" name="filename">
-            
-        </form>
          <div class="row">
             <div class='col s12'>
                <button class="btn waves-effect waves-light" type="submit" name="action">Publish
